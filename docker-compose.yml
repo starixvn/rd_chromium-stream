@@ -1,0 +1,12 @@
+services:
+  nginx:
+    image: alfg/nginx-rtmp
+    ports:
+      - "8888:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf.template
+  stream:
+    build: .
+    environment:
+      - STREAM_FROM=https://sample-videos.com/video321/mkv/720/big_buck_bunny_720p_30mb.mkv
+      - STREAM_TO=rtmp://nginx:1935/stream/test
