@@ -8,5 +8,7 @@ services:
   stream:
     build: .
     environment:
-      - STREAM_FROM=https://sample-videos.com/video321/mkv/720/big_buck_bunny_720p_30mb.mkv
+      - STREAM_FROM=https://www.youtube.com/embed/cqPosRZsw_o?autoplay=1
       - STREAM_TO=rtmp://nginx:1935/stream/test
+      - SCREEN_WIDTH=854
+      - SCREEN_HEIGHT=480
