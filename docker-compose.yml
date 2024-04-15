@@ -12,6 +12,13 @@ services:
       - STREAM_FROM=https://www.youtube.com/embed/qZcSgGQc4-I?autoplay=1
     volumes:
       - hls:/app/hls
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
 
 volumes:
   hls:

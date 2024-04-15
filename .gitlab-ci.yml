@@ -1,0 +1,5 @@
+include:
+  - project: s2tek/ci-cd
+    file:
+      - kaniko/template.yml
+    ref: v2.1.0
