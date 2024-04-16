@@ -3,7 +3,7 @@ ARG CUDA_VERSION=12.4.1
 FROM nvidia/cuda:${CUDA_VERSION}-runtime-ubuntu${UBUNTU_VERSION}
 ENV STREAM_FROM "https://google.com"
 ENV USE_GPU "true"
-ENV CHROME_BIN=/usr/bin/google-chrome
+ENV CHROME_BIN=/usr/bin/chromium-browser
 
 RUN apt-get update && apt-get install -y ca-certificates curl gnupg
 RUN mkdir -p /etc/apt/keyrings
