@@ -3,3 +3,6 @@ include:
     file:
       - kaniko/template.yml
     ref: v2.1.0
+
+variables:
+  KANIKO_REGISTRY_TAG: latest
