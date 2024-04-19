@@ -7,9 +7,6 @@ function ffmpeg(stream) {
     {
       size: "854x480",
       name: "480p60",
-      fps: "60",
-      videoBitrate: "256k",
-      audioBitrate: 0,
     },
   ];
 
@@ -19,7 +16,7 @@ function ffmpeg(stream) {
     .inputOption(cudaOptions)
     .on("start", console.log);
 
-  resolutions.forEach(({ size, name, fps }) => {
+  resolutions.forEach(({ size, name }) => {
     const hlsOptions = [
       "-hls_list_size 3",
       "-hls_delete_threshold 1",
@@ -31,7 +28,6 @@ function ffmpeg(stream) {
     command
       .size(size)
       .videoCodec(codec)
-      .fps(fps)
       .format("hls")
       .output(`hls/${name}.m3u8`)
       .outputOption(hlsOptions);

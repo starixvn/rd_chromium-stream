@@ -2,8 +2,8 @@ const { launch: launchBrowser } = require("puppeteer");
 
 async function launch(url) {
   const size = {
-    width: 1280,
-    height: 720,
+    width: 854,
+    height: 480,
   };
 
   const gpuOptions = [
