@@ -6,9 +6,15 @@ async function start() {
     process.env.STREAM_FROM ||
     "https://www.youtube.com/embed/qZcSgGQc4-I?autoplay=1";
 
-  const stream = await launchBrowser(from);
+  const { browser, stream } = await launchBrowser(from);
 
-  sendStream(stream);
+  try {
+    sendStream(stream);
+  } catch (error) {
+    browser.close();
+  }
+
+  process.on("SIGTERM", () => browser.close());
 }
 
-start();
+start().catch(console.error);

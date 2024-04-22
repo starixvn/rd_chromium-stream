@@ -1,34 +1,37 @@
-const { launch: launchBrowser } = require("puppeteer");
+const { connect } = require("puppeteer");
+
+const browserWSEndpoint =
+  process.env.BROWSER_WS_ENDPOINT || "ws://localhost:3000";
+
+const browserToken = process.env.BROWSER_TOKEN || "token";
 
 async function launch(url) {
+  console.log(`Opening ${url}`);
+
   const size = {
     width: 854,
     height: 480,
   };
 
-  const gpuOptions = [
-    "--use-gl=angle",
-    "--use-angle=gl-egl",
-    "--use-cmd-decoder=passthrough",
-  ];
-
-  const browser = await launchBrowser({
-    headless: true,
-    executablePath: process.env.CHROME_BIN || null,
+  const launchArgs = JSON.stringify({
     defaultViewport: size,
     args: [
-      ...gpuOptions,
       `--window-size=${size.width},${size.height}`,
-      "--no-sandbox",
       "--autoplay-policy=no-user-gesture-required",
+      "--use-gl=angle",
+      "--use-angle=gl",
     ],
+  });
+
+  const browser = await connect({
+    browserWSEndpoint: `${browserWSEndpoint}?token=${browserToken}&launch=${launchArgs}`,
   });
 
   const page = await browser.newPage();
 
   await page.goto(url);
 
-  return await page.screencast();
+  return { browser, stream: await page.screencast() };
 }
 
 module.exports = launch;

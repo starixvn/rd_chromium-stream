@@ -1,4 +1,12 @@
 services:
+  chromium:
+    image: ghcr.io/browserless/chromium
+    ports:
+      - "3000:3000"
+    environment:
+      - CONCURRENT=10
+      - TOKEN=token
+      - TIMEOUT=86400000
   nginx:
     image: nginx
     ports:
