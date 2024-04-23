@@ -7,7 +7,7 @@ variables:
   KANIKO_REGISTRY_IMAGE: $KANIKO_REGISTRY_NAME:$KANIKO_REGISTRY_TAG
   KANIKO_BUILD_ARGS: ""
 
-.kaniko:
+kaniko:
   image:
     name: $KANIKO_IMAGE
     entrypoint: [""]
