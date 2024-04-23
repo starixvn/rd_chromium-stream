@@ -1,6 +1,6 @@
 const FfmpegCommand = require("fluent-ffmpeg");
 
-const useGPU = true || process.env.USE_GPU === "true";
+const useGPU = false || process.env.USE_GPU === "true";
 
 function ffmpeg(stream) {
   const resolutions = [

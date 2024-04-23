@@ -18,7 +18,10 @@ services:
     build: .
     environment:
       - STREAM_FROM=https://www.youtube.com/embed/qZcSgGQc4-I?autoplay=1
+      - BROWSER_WS_ENDPOINT=ws://chromium:3000
+      - USE_GPU=false
     volumes:
+      - ./src:/app/src
       - hls:/app/hls
     deploy:
       resources:
