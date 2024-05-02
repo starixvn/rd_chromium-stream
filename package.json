@@ -4,8 +4,9 @@
   "main": "src/index.js",
   "license": "MIT",
   "dependencies": {
+    "finalhandler": "1.2.0",
     "fluent-ffmpeg": "2.1.2",
-    "hls-server": "1.5.0",
-    "puppeteer": "22.6.2"
+    "puppeteer": "22.6.2",
+    "serve-static": "2.0.0-beta.2"
   }
 }
