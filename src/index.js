@@ -1,5 +1,6 @@
 const launchBrowser = require("./browser");
 const sendStream = require("./ffmpeg");
+const server = require("./server");
 
 async function start() {
   const from =
@@ -18,3 +19,4 @@ async function start() {
 }
 
 start().catch(console.error);
+server.listen(5000);
