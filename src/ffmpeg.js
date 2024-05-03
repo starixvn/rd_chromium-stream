@@ -6,7 +6,15 @@ function ffmpeg(stream) {
   const resolutions = [
     {
       size: "854x480",
-      name: "480p60",
+      name: "480p30",
+      fps: 30,
+      videoBitrate: "256k",
+    },
+    {
+      size: "1280x720",
+      name: "720p30",
+      fps: 30,
+      videoBitrate: "768k",
     },
   ];
 
@@ -16,21 +24,23 @@ function ffmpeg(stream) {
     .inputOption(cudaOptions)
     .on("start", console.log);
 
-  resolutions.forEach(({ size, name }) => {
+  resolutions.forEach(({ size, name, fps, videoBitrate }) => {
     const hlsOptions = [
       "-hls_list_size 3",
       "-hls_delete_threshold 1",
       "-hls_flags delete_segments",
       "-strftime 1",
     ];
-    const codec = useGPU ? "hevc_nvenc" : "libx265";
+    const codec = useGPU ? "hevc_nvenc" : "libx264";
 
     command
-      .size(size)
-      .videoCodec(codec)
       .format("hls")
       .output(`hls/${name}.m3u8`)
-      .outputOption(hlsOptions);
+      .outputOption(hlsOptions)
+      .videoCodec(codec)
+      .videoBitrate(videoBitrate)
+      .size(size)
+      .fps(fps);
   });
 
   command.on("error", (error) => {
