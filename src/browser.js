@@ -1,9 +1,9 @@
 const { connect } = require("puppeteer");
 
 const browserWSEndpoint =
-  process.env.BROWSER_WS_ENDPOINT || "ws://localhost:3000";
+  process.env.BROWSER_WS_ENDPOINT || "wss://browserless.lumigame.com/";
 
-const browserToken = process.env.BROWSER_TOKEN || "token";
+const browserToken = process.env.BROWSER_TOKEN || "rd";
 
 async function launch(url) {
   console.log(`Opening ${url}`);
