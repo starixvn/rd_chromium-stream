@@ -9,8 +9,8 @@ async function launch(url) {
   console.log(`Opening ${url}`);
 
   const size = {
-    width: 854,
-    height: 480,
+    width: 2276,
+    height: 1280,
   };
 
   const launchArgs = JSON.stringify({
