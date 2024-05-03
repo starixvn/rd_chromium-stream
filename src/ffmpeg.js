@@ -28,6 +28,7 @@ function ffmpeg(stream) {
     command
       .size(size)
       .videoCodec(codec)
+      .videoBitrate(30)
       .format("hls")
       .output(`hls/${name}.m3u8`)
       .outputOption(hlsOptions);
