@@ -18,20 +18,6 @@ function ffmpeg(stream) {
       fps: 30,
       videoBitrate: "768k",
     },
-    {
-      size: "?x960",
-      aspect: "16:9",
-      name: "960p30",
-      fps: 30,
-      videoBitrate: "1024k",
-    },
-    {
-      size: "?x1280",
-      aspect: "16:9",
-      name: "1280p30",
-      fps: 30,
-      videoBitrate: "1920k",
-    },
   ];
 
   const cudaOptions = useGPU ? ["-hwaccel cuda"] : [];
