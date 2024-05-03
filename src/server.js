@@ -9,13 +9,14 @@ function setHeaders(res, filePath) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Cache-Control", "no-cache");
 
   switch (extension) {
     case ".m3u8":
       res.setHeader("Content-Type", "application/vnd.apple.mpegurl");
       break;
     case ".ts":
-      res.setHeader("Content-Type", "video/MP2T");
+      res.setHeader("Content-Type", "video/mp2t");
       break;
   }
 }
@@ -41,7 +42,7 @@ const server = http.createServer(function onRequest(req, res) {
     res.setHeader("Access-Control-Allow-Credentials", false);
     res.setHeader("Access-Control-Max-Age", "86400");
 
-    res.writeHead(200);
+    res.writeHead(204);
     res.end();
   } else {
     serve(req, res, finalhandler(req, res));
