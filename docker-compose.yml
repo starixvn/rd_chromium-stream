@@ -6,7 +6,7 @@ services:
     environment:
       - CONCURRENT=10
       - TOKEN=token
-      - TIMEOUT=86400000
+      - TIMEOUT=0
   stream:
     build:
       dockerfile: cdn.Dockerfile
@@ -19,6 +19,7 @@ services:
       - "9999:5000"
     volumes:
       - ./hls:/app/hls
+      - ./src:/app/src
     deploy:
       resources:
         reservations:
