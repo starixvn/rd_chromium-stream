@@ -18,6 +18,9 @@ function setHeaders(res, filePath) {
     case ".ts":
       res.setHeader("Content-Type", "video/mp2t");
       break;
+    case ".html":
+      res.setHeader("Content-Type", "text/html");
+      break;
   }
 }
 
