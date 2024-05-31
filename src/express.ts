@@ -1,7 +1,7 @@
 import express, { Response } from "express";
 import { extname } from "path";
 import cors from "cors";
-import logger from "./logger";
+import bundle from "express-prom-bundle";
 
 const app = express();
 
@@ -18,6 +18,7 @@ export function setHeaders(response: Response, filePath: string) {
   }
 }
 
+app.use(bundle({ includeMethod: true, includePath: true }));
 app.use(cors());
 app.use(express.static("hls", { setHeaders }));
 app.use(express.static("public"));
