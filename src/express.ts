@@ -18,7 +18,19 @@ export function setHeaders(response: Response, filePath: string) {
   }
 }
 
-app.use(bundle({ includeMethod: true, includePath: true }));
+app.use(
+  bundle({
+    includeMethod: true,
+    includePath: true,
+    promClient: {
+      collectDefaultMetrics: {},
+    },
+    normalizePath: [
+      ["^/720p30.*.ts", "/720p30.ts"],
+      ["^/480p30.*.ts", "/480p30.ts"],
+    ],
+  }),
+);
 app.use(cors());
 app.use(express.static("hls", { setHeaders }));
 app.use(express.static("public"));
