@@ -48,4 +48,8 @@ start().catch((error) => {
   start();
 });
 
-express.listen(Number(process.env.PORT || 5000));
+const port = Number(process.env.PORT || 5000);
+
+express.listen(port, "0.0.0.0", () => {
+  logger.info(`Server started at https://localhost:${port}`);
+});
