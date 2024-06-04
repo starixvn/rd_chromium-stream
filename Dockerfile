@@ -29,4 +29,5 @@ RUN npm install --omit=dev
 COPY public public
 COPY hls hls
 COPY --from=builder /app/dist dist
+EXPOSE 5000
 CMD ["node", "dist/index.js"]

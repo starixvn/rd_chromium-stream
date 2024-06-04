@@ -1,6 +1,6 @@
+import { ok } from "assert";
 import { connect } from "puppeteer";
 import logger from "./logger";
-import { ok } from "assert";
 
 export interface BrowserOptions {
   browserEndpoint: string;

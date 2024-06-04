@@ -1,5 +1,5 @@
-import Command from "fluent-ffmpeg";
 import { ok } from "assert";
+import Command from "fluent-ffmpeg";
 import logger from "./logger";
 
 export interface FFmpegOptions {

@@ -1,8 +1,8 @@
+import { config } from "dotenv";
 import launch from "./browser";
 import express from "./express";
 import ffmpeg from "./ffmpeg";
 import logger from "./logger";
-import { config } from "dotenv";
 
 config();
 
@@ -50,6 +50,6 @@ start().catch((error) => {
 
 const port = Number(process.env.PORT || 5000);
 
-express.listen(port, "0.0.0.0", () => {
-  logger.info(`Server started at https://localhost:${port}`);
+express.listen(port, () => {
+  logger.info(`Server is running http://localhost:${port}`);
 });
