@@ -10,7 +10,9 @@ const summary = new Histogram({
   name: "hls_bytes",
   help: "hls transfer in bytes",
   labelNames: ["path"],
-  buckets: [0, 1000, 1000_000, 1000_000_000],
+  buckets: [
+    64, 256, 1024, 4096, 16384, 65536, 262144, 1048576, 4194304, 16777216,
+  ],
 });
 const metricOptions: Opts = {
   includeMethod: true,
