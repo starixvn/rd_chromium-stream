@@ -48,7 +48,7 @@ export function setHeaders(response: Response, filePath: string) {
 }
 
 app.use(bundle(metricOptions));
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.static("public"));
 app.use(express.static("hls", { setHeaders }));
 
