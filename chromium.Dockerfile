@@ -1,4 +1,4 @@
-FROM ghcr.io/browserless/chromium
+FROM ghcr.io/browserless/chrome
 ENV CONCURRENT=10
 ENV TOKEN=rd
 ENV TIMEOUT=0
