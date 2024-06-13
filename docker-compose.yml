@@ -1,12 +1,9 @@
 services:
   chromium:
-    image: ghcr.io/browserless/chromium
+    build:
+      dockerfile: chromium.Dockerfile
     ports:
       - "3000:3000"
-    environment:
-      - CONCURRENT=10
-      - TOKEN=token
-      - TIMEOUT=0
     deploy:
       resources:
         reservations:
@@ -21,7 +18,7 @@ services:
       - STREAM_FROM=https://www.youtube.com/embed/qZcSgGQc4-I?autoplay=1
       - BROWSER_ENDPOINT=ws://chromium:3000
       - BROWSER_TOKEN=token
-      - FFMPEG_GPU=false
+      - FFMPEG_GPU=true
     ports:
       - "9999:3000"
     deploy:
