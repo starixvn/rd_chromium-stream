@@ -11,7 +11,7 @@ const summary = new Histogram({
   help: "hls transfer in bytes",
   labelNames: ["path"],
   buckets: [
-    64, 256, 1024, 4096, 16384, 65536, 262144, 1048576, 4194304, 16777216,
+    64, 256, 1024, 4096, 16384, 65536, 262144, 524288, 1048576, 4194304, 16777216,
   ],
 });
 const metricOptions: Opts = {
