@@ -6,7 +6,7 @@ RUN npm run build
 
 FROM nvidia/cuda:12.4.1-runtime-ubuntu20.04
 ENV STREAM_FROM "https://www.youtube.com/embed/qZcSgGQc4-I?autoplay=1"
-ENV FFMPEG_GPU 0
+ENV FFMPEG_GPU 1
 ENV PORT 5000
 ENV BROWSER_ENDPOINT "wss://browserless.lumigame.com/"
 ENV BROWSER_TOKEN rd
