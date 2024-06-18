@@ -26,8 +26,7 @@ export default function ffmpeg(options: FFmpegOptions) {
 
   const output = options.output || "hls";
 
-  const command = Command()
-    .input(options.stream)
+  const command = Command(options.stream)
     .inputOption(gpu)
     .on("start", (command) => logger.info(command))
     .on("error", (error) => {
