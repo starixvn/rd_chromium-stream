@@ -27,5 +27,6 @@ RUN npm install --omit=dev
 COPY public public
 COPY hls hls
 COPY --from=builder /app/dist dist
+COPY input.mp4 ./
 EXPOSE 5000
 CMD ["node", "dist/index.js"]
